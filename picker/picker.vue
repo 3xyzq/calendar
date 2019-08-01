@@ -4,13 +4,13 @@
     <div class="am-box" :class="activeClass">
       <div class="am-head">
         <input class="cancel" type="button" :value=closetext @click.prevent=close>
-        <h2>{{title}}</h2>
+<!--        <h2>{{title}}</h2>-->
         <input type="button" :value=oktext @click.prevent=success>
       </div>
       <div class="am-ul">
         <div class="am-item" v-for="(item,m) in option" @touchmove.prevent=touchmove @touchstart.prevent=touchstart
              @touchend.prevent=touchend :index=m>
-          <ul :style="'transform: translate3d(0px, '+topStyle[m]+'px, 0px)'" :index=m :class=endClass[m]>
+          <ul :style="'transform: translate3d(0rem, '+topStyle[m]/36+'rem, 0rem)'" :index=m :class=endClass[m]>
             <li v-for="key in item" :class="key==value[m]?'active':''">{{key}}</li>
           </ul>
         </div>
@@ -28,7 +28,7 @@
         value: [],
         option: [],
         activeClass: null,
-        closetext: '关 闭',
+        closetext: '取 消',
         oktext: '确 定',
         topStyle: [],
         start: {
@@ -182,6 +182,7 @@
   .am-picker .am-head {
     display: flex;
     height: 40px;
+    justify-content: space-between;
     line-height: 40px;
     background: #fff;
     border-bottom: 1px solid #eee;
@@ -192,15 +193,12 @@
     border: none;
     outline: none;
     background: none;
-    font-size: 14px;
+    font-size: 16px;
     padding: 0 20px;
     font-family: PingFangSC-Regular;
-    color: #198CFA;
+    color: #03BA8A;
     width: 72px;
-  }
-
-  .cancel {
-    color: #666 !important;
+    line-height: 40px;
   }
 
   .am-picker .am-head h2 {
@@ -214,7 +212,7 @@
   .am-picker .am-ul {
     display: flex;
     flex: 1;
-    -webkit-mask-box-image: linear-gradient(to top, transparent, transparent 5%, white 20%, white 80%, transparent 95%, transparent);
+    /*-webkit-mask-box-image: linear-gradient(to top, transparent, transparent 5%, white 20%, white 80%, transparent 95%, transparent);*/
     position: relative;
   }
 
@@ -227,7 +225,7 @@
     padding: 0;
     margin: 0;
     list-style: none;
-    margin-top: 90px;
+    margin-top: 68px;
   }
 
   .am-picker .am-ul ul.end {
@@ -246,7 +244,7 @@
 
   .am-picker .am-high {
     position: absolute;
-    top: 90px;
+    top: 68px;
     left: 0;
     width: 100%;
     height: 35px;
@@ -254,6 +252,6 @@
     border: 1px solid #eee;
     border-left: 0;
     border-right: 0;
-    z-index: -1
+    /*z-index: -1;*/
   }
 </style>
